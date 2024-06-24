@@ -20,8 +20,6 @@ It passes the tests provided in the `/hbnb/part1/tests` directory.
 - - @classmethods - This methods are: `get`, `get_all`, `delete`. The logic for these methods is the same for all the models, so it was implemented in the Base class.
 - - @staticabstractmethods - methods that the class that inherits from Base should implement, but are static methods. The methods are: `create`, `update`.
 
-It has no documentation yet. ***And this nothing here was created with ChatGPT***. Sorry if something here is not clear enough 😅. Feel free to contact me if you don't understand something, I'm *Ignacio Peralta* find me on Slack.
-
 > [!TIP]
 > You can preload the persistence layer selected via the `reload` method in the `Repository` class.
 > This method is called in the `__init__` method of the `Repository` class.
