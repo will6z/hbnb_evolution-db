@@ -1,3 +1,8 @@
+Flask==2.2.2
+Flask-SQLAlchemy==2.5.1
+Flask-JWT-Extended==4.4.3
+Flask-Bcrypt==0.7.1
+python-dotenv==0.21.0  # Optional, for handling environment variables from .env file
 flask
 flask-cors
 

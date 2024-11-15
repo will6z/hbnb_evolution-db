@@ -13,51 +13,28 @@ import os
 
 class Config(ABC):
     """
-    Initial configuration settings
-    This class should not be instantiated directly
+    Initial configuration settings.
+    This class should not be instantiated directly.
     """
 
     DEBUG = False
     TESTING = False
-
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY', 'super-secret')  # Secret key for JWT
 
 
 class DevelopmentConfig(Config):
     """
     Development configuration settings
-    This configuration is used when running the application locally
-
-    This is useful for development and debugging purposes.
-
-    To check if the application is running in development mode, you can use:
-    ```
-    app = Flask(__name__)
-
-    if app.debug:
-        # Do something
-    ```
     """
 
-    SQLALCHEMY_DATABASE_URI = os.getenv(
-        "DATABASE_URL", "sqlite:///hbnb_dev.db")
+    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite:///hbnb_dev.db")
     DEBUG = True
 
 
 class TestingConfig(Config):
     """
     Testing configuration settings
-    This configuration is used when running tests.
-    You can enabled/disable things across the application
-
-    To check if the application is running in testing mode, you can use:
-    ```
-    app = Flask(__name__)
-
-    if app.testing:
-        # Do something
-    ```
-
     """
 
     TESTING = True
@@ -67,10 +44,6 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     """
     Production configuration settings
-    This configuration is used when you create a
-    production build of the application
-
-    The debug or testing options are disabled in this configuration.
     """
 
     TESTING = False
@@ -80,3 +53,4 @@ class ProductionConfig(Config):
         "DATABASE_URL",
         "postgresql://user:password@localhost/hbnb_prod"
     )
+
